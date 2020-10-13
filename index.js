@@ -13,13 +13,18 @@ function usarTodosArquivos(err, namesOfFiles) {
      videoFiles = [],
      subtitleFiles = [];
 
-  for (var fle in namesOfFiles){ 
+  for (let fle in namesOfFiles){ 
     let 
-      actualName=namesOfFiles[fle];
-        if(actualName)
-          fileNames.push()
-    
+      actualName = namesOfFiles[fle];
+        if(actualName.search(".srt")!=-1)//Se for legenda
+          subtitleFiles.push(actualName);
+          else
+           videoFiles.push(actualName);    
   }
+  for(let video in videoFiles){
+    //video.rename()
+  }
+  console.log(subtitleFiles);
 }
 
 
@@ -31,5 +36,6 @@ fsystem.rename("./tsllll.txt", "tsllll.txt", (err) => {
 setTimeout(()=>
 {
   let numerosDoArq = fileNames[0].replace(/\D+/g, "");
-  search(numerosDoArq)==
-},1100);
+//  search(numerosDoArq)==
+}
+,1100);
