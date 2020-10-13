@@ -21,9 +21,12 @@ function usarTodosArquivos(err, namesOfFiles) {
           else
            videoFiles.push(actualName);    
   }
-  for(let video in videoFiles){
-    //video.rename()
+  for(let subtitl in subtitleFiles){
+    fsystem.rename('./'+subtitl+'','subtitlo',
+    (err) => {
+      err ? console.log("er: " + err) : console.log("")
   }
+  )
   console.log(subtitleFiles);
 }
 
