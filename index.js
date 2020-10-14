@@ -5,37 +5,44 @@ const
      videoFiles = [],
      subtitleFiles = [];
 
-function usarTodosArquivos(err, namesOfFiles) {
-  
+function RenomeiaRespectivo(selectedSubtitle){
+  //testPrpse        if(selectedSubtitle.search())
+  fsystem.rename('./test/'+selectedSubtitle+'','./test/subtitlo.srt',
+  (err) => {
+    err ? console.log("er: " + err) : console.log("")
+})
+}
 
-  for (let fle in namesOfFiles){ 
+
+function AtualizaListagemVideoSubs(nomesArquivos){
+  for (let fle in nomesArquivos){ 
     let 
-      actualName = namesOfFiles[fle];
+      actualName = nomesArquivos[fle];
         if(actualName.search(".srt")!=-1)//Se for legenda
           subtitleFiles.push(actualName);
           else
            videoFiles.push(actualName);    
   }
+}
+
+
+function UsarTodosArquivos(err, namesOfFiles) {
+  
+    AtualizaListagemVideoSubs(namesOfFiles);
+  
 
   for(let video in videoFiles){
    let
     selectedVideo = videoFiles[video];
-
     for(let subtitl in subtitleFiles){
       let
-        selectedSubtitle = subtitleFiles[subtitl];
-        
-//testPrpse        if(selectedSubtitle.search())
-            fsystem.rename('./test/'+selectedSubtitle+'','./test/subtitlo.srt',
-            (err) => {
-              err ? console.log("er: " + err) : console.log("")
-          })
-              
-  
+        selectedSubtitle = subtitleFiles[subtitl];        
+        RenomeiaRespectivo(selectedSubtitle)  
     }
+
   }
 }
-fsystem.readdir(foldr, usarTodosArquivos);
+fsystem.readdir(foldr, UsarTodosArquivos);
 
 //rascunhos
 
