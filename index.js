@@ -1,17 +1,12 @@
 var fsystem = require("fs");
 var foldr = "./test";
 
-
-
-const fileNames = ['f21irst s4e5a'];
-fileNames.push("ARQV");
-fileNames.push("ARQV2");
-
-
-function usarTodosArquivos(err, namesOfFiles) {
-  var 
+const 
      videoFiles = [],
      subtitleFiles = [];
+
+function usarTodosArquivos(err, namesOfFiles) {
+  
 
   for (let fle in namesOfFiles){ 
     let 
@@ -21,27 +16,26 @@ function usarTodosArquivos(err, namesOfFiles) {
           else
            videoFiles.push(actualName);    
   }
-  for(let subtitl in subtitleFiles){
-    let
-      selectedSubtitle = subtitleFiles[subtitl];
-    fsystem.rename('./test/'+selectedSubtitle+'','./test/subtitlo.srt',
-    (err) => {
-      err ? console.log("er: " + err) : console.log("")
-  }
-  )
+
+  for(let video in videoFiles){
+   let
+    selectedVideo = videoFiles[video];
+
+    for(let subtitl in subtitleFiles){
+      let
+        selectedSubtitle = subtitleFiles[subtitl];
+        
+//testPrpse        if(selectedSubtitle.search())
+            fsystem.rename('./test/'+selectedSubtitle+'','./test/subtitlo.srt',
+            (err) => {
+              err ? console.log("er: " + err) : console.log("")
+          })
+              
   
+    }
+  }
 }
-}
-
-
 fsystem.readdir(foldr, usarTodosArquivos);
-fsystem.rename("./tsllll.txt", "tsllll.txt", (err) => {
-  err ? console.log("er: " + err) : console.log("sucess");
-});
 
-setTimeout(()=>
-{
-  let numerosDoArq = fileNames[0].replace(/\D+/g, "");
-//  search(numerosDoArq)==
-}
-,1100);
+//rascunhos
+
