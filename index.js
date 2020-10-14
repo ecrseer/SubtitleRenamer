@@ -6,11 +6,14 @@ const
      subtitleFiles = [];
 
 function RenomeiaRespectivo(selectedSubtitle){
-  //testPrpse        if(selectedSubtitle.search())
-  fsystem.rename('./test/'+selectedSubtitle+'','./test/subtitlo.srt',
-  (err) => {
-    err ? console.log("er: " + err) : console.log("")
-})
+  /*  if(selectedSubtitle.search()){
+      fsystem.rename('./test/'+selectedSubtitle+'','./test/subtitlo.srt',
+      (err) => {
+        err ? console.log("er: " + err) : console.log("")
+    })
+
+  }  */   console.log(selectedSubtitle);
+
 }
 
 
