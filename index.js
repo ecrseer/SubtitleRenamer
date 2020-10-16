@@ -1,7 +1,7 @@
 var fsystem = require("fs");
 var foldr = "./test";
 
-const 
+var 
      videoFiles = [],
      subtitleFiles = [];
 
@@ -10,17 +10,20 @@ function RelataErro(err){
 
 }
 
-function RenomeiaRespectivo(selectedSubtitle,selectedVideo){
+function RenomeiaRespectivo(selectedVideo,i){
   let
     numerosDoVid =
      selectedVideo.replace(/\D+/g, "");
 
-   if(selectedSubtitle.search(numerosDoVid)){
+   if(subtitleFiles[i].search(numerosDoVid)){
       /* fsystem.rename('./test/'+selectedSubtitle+'',
         './test/'+'removeNum'+'',
         RelataErro); */
-      console.log(selectedSubtitle);
+        
+        subtitleFiles[i]='4242424242';        
+        console.log(subtitleFiles);
    }
+
  }
 
 
@@ -46,12 +49,10 @@ function UsarTodosArquivos(err, namesOfFiles) {
   for(let video in videoFiles){
    let
     selectedVideo = videoFiles[video];
-    for(let subtitl in subtitleFiles){
-      let
-        selectedSubtitle = subtitleFiles[subtitl];        
-        RenomeiaRespectivo(selectedSubtitle,selectedVideo);
+    for(let i=0; i<subtitleFiles.length;i++){
+        RenomeiaRespectivo(selectedVideo,i);
     }
-
+    console.log("____");
   }
 }
 fsystem.readdir(foldr, UsarTodosArquivos);
